@@ -11,7 +11,7 @@ public class Main {
         car.drive();
         car.stop();
 
-        F1 f1 = new F1();
+        F1 f1 = new F1("Ferrari"); 
         f1.start();
         f1.drive();
         f1.race();
