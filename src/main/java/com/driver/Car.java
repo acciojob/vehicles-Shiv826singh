@@ -1,7 +1,21 @@
+
+
 package com.driver;
 
 public class Car extends Vehicle {
-    public void drive() {
-        System.out.println("Car is driving...");
+    private String name;
+    private boolean isManual;
+
+    public Car(String name, boolean isManual) {
+        this.name = name;
+        this.isManual = isManual;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public boolean isManual() {
+        return isManual;
     }
 }
