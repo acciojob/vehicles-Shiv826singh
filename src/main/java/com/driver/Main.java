@@ -2,9 +2,19 @@ package com.driver;
 
 public class Main {
     public static void main(String[] args) {
-        F1 mercedes = new F1("mercedes", false);
-        mercedes.move(40, 0);
-        mercedes.accelerate(20);
-        mercedes.accelerate(-60);
+        Vehicle vehicle = new Vehicle();
+        vehicle.start();
+        vehicle.stop();
+
+        Car car = new Car();
+        car.start();
+        car.drive();
+        car.stop();
+
+        F1 f1 = new F1();
+        f1.start();
+        f1.drive();
+        f1.race();
+        f1.stop();
     }
 }
