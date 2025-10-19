@@ -3,6 +3,31 @@ package com.driver;
 public class F1 extends Car {
     private int speed;
     private String direction;
+    public int getCurrentGear() {
+        return super.getGear(); // assumes Car has getGear()
+    }
+
+    public void accelerate(int increment) {
+        this.speed += increment;
+    }
+
+    public int getCurrentSpeed() {
+        return this.speed;
+    }
+
+    public String getCurrentDirection() {
+        return this.direction;
+    }
+
+    public void steer(int angle) {
+        this.direction = "Steered " + angle + " degrees";
+    }
+
+    public void changeSpeed(int speed, int gear) {
+        this.speed = speed;
+        super.changeGear(gear); // assumes Car has changeGear(int)
+    }
+
 
     public F1(String name, boolean isManual) {
         super(name, isManual);
