@@ -1,33 +1,41 @@
 package com.driver;
 
 public class F1 extends Car {
-    private int currentSpeed;
-    private String currentDirection;
+    private int speed;
+    private String direction;
 
     public F1(String name, boolean isManual) {
         super(name, isManual);
-        this.currentSpeed = 0;
-        this.currentDirection = "Straight";
+        this.speed = 0;
+        this.direction = "Straight";
     }
 
-    public int getSpeed() {
-        return currentSpeed;
+    public void drive() {
+        System.out.println("F1 car is driving");
     }
 
-    public String getDirection() {
-        return currentDirection;
+    public void race() {
+        System.out.println("F1 car is racing");
     }
 
     public void setSpeed(int speed) {
-        this.currentSpeed = speed;
+        this.speed = speed;
+    }
+
+    public int getSpeed() {
+        return speed;
     }
 
     public void setDirection(String direction) {
-        this.currentDirection = direction;
+        this.direction = direction;
+    }
+
+    public String getDirection() {
+        return direction;
     }
 
     public void move(int speed, String direction) {
-        this.currentSpeed = speed;
-        this.currentDirection = direction;
+        this.speed = speed;
+        this.direction = direction;
     }
 }
