@@ -1,11 +1,13 @@
 package com.driver;
 
 public class Vehicle {
-    public void start() {
-        System.out.println("Vehicle is starting...");
+    private String name;
+
+    public Vehicle(String name) {
+        this.name = name;
     }
 
-    public void stop() {
-        System.out.println("Vehicle is stopping...");
+    public String getName() {
+        return name;
     }
 }
