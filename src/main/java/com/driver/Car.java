@@ -18,4 +18,7 @@ public class Car extends Vehicle {
     public boolean isManual() {
         return isManual;
     }
+    public void drive() {
+    System.out.println("Driving " + name + (isManual ? " manually." : " automatically."));
+}
 }
