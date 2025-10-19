@@ -2,13 +2,13 @@ package com.driver;
 
 public class F1 extends Car {
     private int speed;
-    private String direction;
+    private int direction;
 
     public F1(String name, boolean isManual) {
         // Arbitrary values for wheels, doors, gears, type, seats
         super(name, 4, 2, 6, isManual, "F1", 1);
         this.speed = 0;
-        this.direction = "Straight";
+        this.direction = 0;
     }
 
     public void accelerate(int rate) {
@@ -34,6 +34,9 @@ public class F1 extends Car {
 
         if (newSpeed > 0) {
             changeSpeed(newSpeed, getCurrentDirection());
+        } else {
+            // ensure the vehicle state is updated when speed becomes zero
+            changeSpeed(0, getCurrentDirection());
         }
     }
 
@@ -41,14 +44,17 @@ public class F1 extends Car {
         return this.speed;
     }
 
-    public String getCurrentDirection() {
+    @Override
+    public int getCurrentDirection() {
         return this.direction;
     }
 
-    public void changeSpeed(int speed, String direction) {
+    public void changeSpeed(int speed, int direction) {
         this.speed = speed;
         this.direction = direction;
-        System.out.println("changeSpeed method called - The speed is changed to: " + speed + ", and the direction is changed to: " + direction);
+        // keep Vehicle's internal state in sync
+        super.move(speed, direction);
+        System.out.println("changeSpeed method called - The speed is changed to: " + speed + ", and the direction is changed to: " + direction + " degrees");
     }
 
     public void changeGear(int gear) {
@@ -59,7 +65,10 @@ public class F1 extends Car {
         return super.getGear();
     }
 
+    @Override
     public void steer(int angle) {
-        this.direction = "Steered " + angle + " degrees";
+        // update local direction and propagate to parent
+        this.direction += angle;
+        super.steer(angle);
     }
 }
