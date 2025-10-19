@@ -10,20 +10,24 @@ public class F1 extends Car {
         this.currentDirection = "Straight";
     }
 
-    public int getCurrentSpeed() {
+    public int getSpeed() {
         return currentSpeed;
     }
 
-    public String getCurrentDirection() {
+    public String getDirection() {
         return currentDirection;
     }
 
-    // Optional: methods to update speed and direction
-    public void accelerate(int speed) {
-        this.currentSpeed += speed;
+    public void setSpeed(int speed) {
+        this.currentSpeed = speed;
     }
 
-    public void turn(String direction) {
+    public void setDirection(String direction) {
+        this.currentDirection = direction;
+    }
+
+    public void move(int speed, String direction) {
+        this.currentSpeed = speed;
         this.currentDirection = direction;
     }
 }
