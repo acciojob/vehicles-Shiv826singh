@@ -1,5 +1,3 @@
-
-
 package com.driver;
 
 public class Car extends Vehicle {
@@ -7,27 +5,26 @@ public class Car extends Vehicle {
     private boolean isManual;
     private int gear;
 
-public int getGear() {
-    return gear;
-}
-
-public void changeGear(int gear) {
-    this.gear = gear;
-}
-
     public Car(String name, boolean isManual) {
+        super(name);
         this.name = name;
         this.isManual = isManual;
-    }
-
-    public String getName() {
-        return name;
+        this.gear = 0; // Initialize gear
     }
 
     public boolean isManual() {
         return isManual;
     }
+
+    public int getGear() {
+        return gear;
+    }
+
+    public void changeGear(int gear) {
+        this.gear = gear;
+    }
+
     public void drive() {
-    System.out.println("Driving " + name + (isManual ? " manually." : " automatically."));
-}
+        System.out.println("Car is driving");
+    }
 }
